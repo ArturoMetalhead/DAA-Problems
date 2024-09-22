@@ -66,7 +66,7 @@ def Test1():
         print("No se encontró ningún clique del tamaño requerido.")
 
     print("Fuerza bruta")
-    clique_nodes = brute_force(nodes, 5)
+    clique_nodes = brute_force(comp_nodes, 5)
     if clique_nodes:
         print(f"Clique encontrado: Tamaño 5, Nodos {[n.id for n in clique_nodes]}")
         print(check_clique(clique_nodes))
@@ -121,7 +121,7 @@ def Test2():
         print("No se encontró ningún clique del tamaño requerido.")
 
     print("Fuerza bruta")
-    clique_nodes = brute_force(nodes, 4)
+    clique_nodes = brute_force(comp_nodes, 4)
     if clique_nodes:
         print(f"Clique encontrado: Tamaño 4, Nodos {[n.id for n in clique_nodes]}")
         print(check_clique(clique_nodes))
@@ -136,12 +136,12 @@ def Generate_and_Test():
         print(f"Test {i+1}")
         nodes = generate_graph(10, 20)
 
-    edges = set()
-    for node in nodes:
-        for edge in node.edges:
-            edges.add(edge)
-    
-    
+        edges = set()
+        for node in nodes:
+            for edge in node.edges:
+                edges.add(edge)
+        
+        
         comp_nodes, comp_edges = find_complement(nodes, list(edges))
         k = random.randint(3, 6)
 
@@ -163,7 +163,7 @@ def Generate_and_Test():
 
         print("Fuerza bruta")
 
-        clique_nodes = brute_force(nodes, k)
+        clique_nodes = brute_force(comp_nodes, k)
         if clique_nodes:
             print(f"Clique encontrado: Tamaño {k}, Nodos {[n.id for n in clique_nodes]}")
             print(check_clique(clique_nodes))
