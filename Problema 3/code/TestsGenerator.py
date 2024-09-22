@@ -3,32 +3,31 @@ import random
 def generator1(test_cases_number):
     cases = []
 
-    for i in range(test_cases_number):
+    for _ in range(test_cases_number):
         n = random.randint(2, 4)
-        prueba1 = []
-        prueba2 = []
-        students_available = 8
-        k = random.randint(1, 8)
+        P, R = [], []
+        T = 10
+        k = random.randint(1, 10)
 
         for i in range(n):
-            if students_available <= 0:
+            if T <= 0:
                 r1 = 0
             else:
-                r1 = random.randint(0, students_available)
+                r1 = random.randint(0, T)
 
-            prueba1.append(r1)
-            students_available -= r1
+            P.append(r1)
+            T-= r1
 
         for i in range(n):
-            if students_available <= 0:
+            if T <= 0:
                 r1 = 0
             else:
-                r1 = random.randint(0, students_available)
+                r1 = random.randint(0, T)
 
-            prueba2.append(r1)
-            students_available -= r1
+            R.append(r1)
+            T -= r1
 
-        cases.append((prueba1, prueba2, k))
+        cases.append((P, R, k))
 
     return cases
 
@@ -36,27 +35,26 @@ def generator1(test_cases_number):
 def generator2(test_cases_number):
     test_cases = []
 
-    for i in range(test_cases_number):
+    for _ in range(test_cases_number):
         n = random.randint(1, 7)
-        prueba1 = []
-        prueba2 = []
-        total = 0
+        P, R= [],[]
+        T = 0
 
         for i in range(n):
-            mi = 0    
-            fi = 0
+            pi = 0    
+            ri = 0
 
-            while mi + fi == 0:
-                mi = random.randint(0, 20)
-                fi = random.randint(0, 20)
+            while pi + ri == 0:
+                pi = random.randint(0, 20)
+                ri = random.randint(0, 20)
             
-            total += mi + fi
-            prueba1.append(mi)
-            prueba2.append(fi)
+            T += pi + ri
+            P.append(pi)
+            R.append(ri)
 
-        k = random.randint(1, 10)
+        k = random.randint(1, T)
         
-        test_cases.append((prueba1, prueba2, k))
+        test_cases.append((P, R, k))
 
     return test_cases
     
@@ -64,26 +62,25 @@ def generator2(test_cases_number):
 def generator3(test_cases_number):
     test_cases = []
 
-    for i in range(test_cases_number):
+    for _ in range(test_cases_number):
         n = random.randint(1, 50)
-        prueba1 = []
-        prueba2 = []
-        total = 0
+        P, R = [],[]
+        T = 0
 
-        for i in range(n):
-            mi = 0    
-            fi = 0
+        for _ in range(n):
+            pi = 0    
+            ri = 0
 
-            while mi + fi == 0:
-                mi = random.randint(0, 100)
-                fi = random.randint(0, 100)
+            while pi + ri == 0:
+                pi = random.randint(0, 100)
+                ri = random.randint(0, 100)
             
-            total += mi + fi
-            prueba1.append(mi)
-            prueba2.append(fi)
+            T += pi + ri
+            P.append(pi)
+            R.append(ri)
 
-        k = random.randint(1, total)
+        k = random.randint(1, T)
         
-        test_cases.append((prueba1, prueba2, k))
+        test_cases.append((P, R, k))
 
     return test_cases
