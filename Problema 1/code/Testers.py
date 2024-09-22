@@ -10,7 +10,7 @@ print("1: First Aproximation", "2: Second Aproximation", "3: Third Aproximation"
 
 alg= input("Put the algorithm you want to see \n")
 
-num_cases = int(nput("Insert how many cases you want to generate: \n"))
+num_cases = int(input("Insert how many cases you want to generate: \n"))
 
 avg_edges = 4
 dev_edges = 2
