@@ -35,14 +35,14 @@ def get_paths( u, v, l, G, cost, current_path, total_paths):
     if cost > l:
         return
     
-    if u == v and cost <= 1:
+    if u == v and cost <= l:
         current_path1 = current_path[:]
         #current_path1 = copy.deepcopy(current_path)
         total_paths.append(current_path1)
 
     for node_ady in G.graph[u]:
         node, c = node_ady
-        if cost + c <= 1:
+        if cost + c <= l:
             cost += c
             current_path.append((u, node))
             get_paths(node, v, l, G, cost, current_path, total_paths)
